@@ -1,0 +1,50 @@
+# Basic mediawiki-node-services config, running the following services in a
+# single process:
+#
+# - RESTBase
+# - Parsoid
+
+services:
+  - name: restbase
+    conf: 
+      port: 7231
+      salt: secret
+      default_page_size: 125
+      user_agent: RESTBase
+      spec: 
+        paths:
+          /{domain:localhost}:
+            x-modules:
+              /:
+                - path: projects/example.yaml
+                  options:
+                    action:
+                      # XXX Check API URL!
+                      apiUriTemplate: http://localhost/w/api.php
+                    parsoid:
+                      # XXX Check Parsoid URL!
+                      host: http://localhost:8142
+                    table:
+                      dbname: db.sqlite3
+                      pool_idle_timeout: 20000
+                      retry_delay: 250
+                      retry_limit: 10
+                      show_sql: false
+  - name: parsoid
+    entrypoint: apiServiceWorker
+    conf:
+      useSelser: true
+      serverPort: 8142
+      serverInterface: 127.0.0.1
+      debug: false
+      mwApis:
+        - domain: localhost
+          uri: 'http://localhost/w/api.php'
+          
+
+# Finally, a standard service-runner config.
+info:
+  name: mediawiki-node-services
+
+logging:
+  level: info
