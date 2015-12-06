@@ -23,7 +23,7 @@
     "url": "https://github.com/gwicke/mediawiki-node-services/issues"
   },
   "dependencies": {
-    "parsoid": "^0.4.0",
+    "parsoid": "git+https://github.com/gwicke/parsoid.git",
     "restbase": "^0.9.1",
     "service-runner": "^0.3.1",
     "restbase-mod-table-sqlite": "^0.1.10"
