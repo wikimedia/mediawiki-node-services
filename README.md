@@ -2,5 +2,5 @@
 Run several mediawiki nodejs services (RESTBase, Parsoid) in a single docker
 container. Useful for small / low-memory installs.
 
-See [config.yaml](blob/master/config.yaml) for the main config file
+See [config.yaml](config.yaml) for the main config file
 orchestrating this.
