@@ -20,7 +20,7 @@ services:
                   options:
                     action:
                       # XXX Check API URL!
-                      apiUriTemplate: http://mediawiki/api.php
+                      apiUriTemplate: http://localhost/w/api.php
                     parsoid:
                       # XXX Check Parsoid URL!
                       host: http://localhost:8142
@@ -35,11 +35,12 @@ services:
     conf:
       useSelser: true
       serverPort: 8142
-      serverInterface: 127.0.0.1
+      serverInterface: 0.0.0.0
       debug: false
       mwApis:
         - domain: localhost
-          uri: 'http://mediawiki/api.php'
+          prefix: localhost
+          uri: 'http://localhost/w/api.php'
           
 
 # Finally, a standard service-runner config.
