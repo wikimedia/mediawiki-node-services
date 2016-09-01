@@ -1,6 +1,6 @@
 {
   "name": "mediawiki-node-services",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Run several mediawiki nodejs services (RESTBase, Parsoid) in a single docker container. Useful for small / low-memory installs.",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gwicke/mediawiki-node-services.git"
+    "url": "https://github.com/wikimedia/mediawiki-node-services.git"
   },
   "keywords": [
     "mediawiki",
@@ -17,15 +17,19 @@
     "restbase",
     "docker"
   ],
-  "author": "Gabriel Wicke <gwicke@wikimedia.org>",
+  "author": "WMF Services team <services@lists.wikimedia.org>",
+  "contributors": [
+    "Gabriel Wicke <gwicke@wikimedia.org>",
+    "Marko Obrovac <mobrovac@wikimedia.org>"
+  ],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/gwicke/mediawiki-node-services/issues"
+    "url": "https://github.com/wikimedia/mediawiki-node-services/issues"
   },
   "dependencies": {
     "parsoid": "git+https://github.com/gwicke/parsoid.git",
-    "restbase": "^0.9.1",
-    "service-runner": "^0.3.1",
-    "restbase-mod-table-sqlite": "^0.1.10"
+    "restbase": "^0.15.0",
+    "service-runner": "^2.1.0",
+    "restbase-mod-table-sqlite": "^0.1.18"
   }
 }
