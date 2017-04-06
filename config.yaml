@@ -12,7 +12,22 @@ services:
       salt: secret
       default_page_size: 125
       user_agent: RESTBase
+      ui_name: RESTBase
+      ui_url: https://www.mediawiki.org/wiki/RESTBase
+      ui_title: RESTBase docs
       spec: 
+        x-request-filters:
+          - path: lib/security_response_header_filter.js
+        x-sub-request-filters:
+          - type: default
+            name: http
+            options:
+            allow:
+              - pattern: '{env(MEDIAWIKI_API_URL,http://localhost/w/api.php)}'
+                forward_headers: true
+              - pattern: http://localhost:8142
+                forward_headers: true
+              - pattern: /^https?:\/\//
         paths:
           /{domain:localhost}:
             x-modules:
@@ -21,6 +36,7 @@ services:
                   action:
                     # XXX Check API URL!
                     apiUriTemplate: '{env(MEDIAWIKI_API_URL,http://localhost/w/api.php)}'
+                    baseUriTemplate: "{{'http://{domain}:7231/{domain}/v1'}}"
                   parsoid:
                     # XXX Check Parsoid URL!
                     host: http://localhost:8142
@@ -31,6 +47,7 @@ services:
                     retry_delay: 250
                     retry_limit: 10
                     show_sql: false
+                  purged_cache_control: s-maxage=864000, max-age=86400
   - name: parsoid
     entrypoint: apiServiceWorker
     conf:
