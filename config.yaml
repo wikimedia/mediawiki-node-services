@@ -32,7 +32,7 @@ services:
           /{domain:localhost}:
             x-modules:
               - path: projects/example.yaml
-                options:
+                options: &default_options
                   action:
                     # XXX Check API URL!
                     apiUriTemplate: '{env(MEDIAWIKI_API_URL,http://localhost/w/api.php)}'
@@ -47,7 +47,13 @@ services:
                     retry_delay: 250
                     retry_limit: 10
                     show_sql: false
+                  mathoid:
+                    host: '{env(MATHOID_HOST_PORT,http://localhost:10044)}'
                   purged_cache_control: s-maxage=864000, max-age=86400
+          /{domain:wikimedia.org}:
+            x-modules:
+              - path: projects/wikimedia.org.yaml
+                options: *default_options
   - name: parsoid
     entrypoint: apiServiceWorker
     conf:

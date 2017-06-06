@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "parsoid": "^0.7.1",
-    "restbase": "^0.16.5",
+    "restbase": "^0.16.6",
     "service-runner": "^2.2.5",
     "restbase-mod-table-sqlite": "^0.1.20"
   }
