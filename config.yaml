@@ -49,6 +49,10 @@ services:
                     show_sql: false
                   mathoid:
                     host: '{env(MATHOID_HOST_PORT,http://localhost:10044)}'
+                  mobileapps:
+                    host: '{env(MOBILEAPPS_URI,http://localhost:8888)}'
+                  citoid:
+                    host: '{env(CITOID_URI,http://localhost:1970)}'
                   purged_cache_control: s-maxage=864000, max-age=86400
           /{domain:wikimedia.org}:
             x-modules:
