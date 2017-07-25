@@ -1,6 +1,6 @@
 {
   "name": "mediawiki-node-services",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Run several mediawiki nodejs services (RESTBase, Parsoid) in a single docker container. Useful for small / low-memory installs.",
   "main": "index.js",
   "scripts": {
