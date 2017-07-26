@@ -6,6 +6,6 @@ WORKDIR /src
 RUN npm install
 RUN mkdir -p /data
 
-EXPOSE  7123
+EXPOSE  7231
 
 CMD ["/src/docker-entrypoint.sh"]
