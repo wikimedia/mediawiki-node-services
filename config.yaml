@@ -69,6 +69,7 @@ services:
         - domain: localhost
           prefix: localhost
           uri: '{env(MEDIAWIKI_API_URL,http://localhost/w/api.php)}'
+          strictSSL: '{env(STRICT_SSL,true)}'
 
 # Finally, a standard service-runner config.
 info:
